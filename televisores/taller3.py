@@ -96,38 +96,38 @@ class TV:
 
 class Control:
     def __init__(self, tv):
-        self.tv = TV.tv
+        self.tv = tv
 
-    def enlazar(self, TV.tv):
-        TV.tv.setControl(self) 
+    def enlazar(self, TV, tv):
+        tv.setControl(self) 
 
     def turnOn(self, estado):
-        self.tv.estado = True
+        self.estado = True
 
     def turnOff(self, estado):
-        self.tv.estado = False
+        self.estado = False
     
     def canalUp(self, canal):
-        self.tv.canal += 1
+        self.canal += 1
 
     def canalDown(self, canal):
-         self.tv.canal -= 1
+         self.canal -= 1
     
     def volumenUp(self, volumen):
-        self.tv.volumen += 1
+        self.volumen += 1
     
     def volumenDown(self, volumen):
-        self.tv.volumen -= 1
+        self.volumen -= 1
 
     def setCanal(self, canal):
-        if (self.tv.canal and canal >=1) and (canal<=120) and self.tv.estado == True:
-            self.tv.canal = canal 
+        if (self.canal and canal >=1) and (canal<=120) and self.estado == True:
+            self.canal = canal 
             return self.canal 
         
     def setVolumen(self, volumen):
-        if (self.tv.volumen and volumen >= 0) and (volumen<= 7) and self.tv.estado == True:
-            self.tv.volumen = volumen
-            return self.tv.volumen
+        if (self.volumen and volumen >= 0) and (volumen<= 7) and self.estado == True:
+            self.volumen = volumen
+            return self.volumen
 
     
 
