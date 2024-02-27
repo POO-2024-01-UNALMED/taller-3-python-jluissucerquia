@@ -1,80 +1,82 @@
+from __future__ import annotations
 
-class tv:
-    def __init__(self, marca, canal, precio, estado, volumen, control):
+class TV:
+    _numTV = 0
+
+    def __init__(self, marca: Marca, estado: bool) -> None:
         self.marca = marca
-        self.canal = canal
-        self.precio = precio
         self.estado = estado
-        self.volumen = volumen
-        self.control = control
-        numTV = 0
+        self.canal = 1
+        self.volumen = 1
+        self.precio = 500
+        self.control = None
 
-        def __init__(self, marca, estado):
-            self.marca = marca
-            self.estado = estado
-            canal = 1
-            volumen = 1
-            precio = 500
+        TV._numTV += 1
 
-            def setMarca(self, marca):
-                self.marca = marca 
 
-            def getMarca(self):
-                return self.marca
-            
-            def setCanal(self, canal):
-                self.canal = canal
+    @classmethod
+    def getNumTV(cls)-> int:
+        return cls._numTV
+    
+    @classmethod
+    def setNumTV(cls, numTV: int) -> None:
+        cls.numTV = numTV
 
-            def getCanal(self):
-                return self.canal
-            
-            def setPrecio(self, precio):
-                self.precio = precio
-            
-            def getPrecio(self):
-                self.precio = precio
+    def turnOn(self) -> None:
+        self._estado = True
 
-            def setVolumen(self, volumen):
-                self.volumen = volumen
+    def turnOff(self) -> None:
+        self._estado = False
 
-            def getVolumen(self):
-                return self.volumen
-            
-            def setControl(self, control):
-                self.control = control
+    def canalUp(self) -> None:
+        self.setCanal(self._canal + 1)
 
-            def getControl(self):
-                return self.control
-            
-        def turnOn(self, estado):
-                self.estado = True
-            
-        def turnOff(self, estado):
-                self.estado = False
-            
-        def getEstado(self):
-            return self.estado
+    def canalDown(self) -> None:
+        self.setCanal(self._canal - 1)
 
-        def canalUp(self, canal):
-            self.canal += 1
+    def volumenUp(self) -> None:
+        self.setVolumen(self._volumen + 1)
 
-        def canalDown(self, canal):
-            self.canal -= 1
+    def volumenDown(self) -> None:
+        self.setVolumen(self._volumen - 1)
 
-        def volumenUp(self, volumen):
-            self.volumen += 1
+    def getMarca(self) -> Marca:
+        return self._marca
+    
+    def getCanal(self) -> int:
+        return self._canal
+    
+    def getPrecio(self) -> int:
+        return self._precio
+    
+    def getVolumen(self) -> int:
+        return self._volumen
 
-        def volumenDown(self, volumen):
-            self.volumen -= 1
+    def getControl(self) -> Control:
+        return self._control
+    
+    def getEstado(self) -> bool:
+        return self._estado
+    
+    def setMarca(self, marca: Marca) -> None:
+        self._marca = marca
+    
+    def setCanal(self, canal: int) -> None:
+        if self._estado and 1 <= canal <= 120:
+            self._canal = canal
 
-        def setCanal(self, canal):
-            if self.estado == True:
-                if (self.canal and canal >=1) and (canal<=120):
-                    self.canal = canal
-                    return self.canal 
+    def setPrecio(self, precio: int) -> None:
+        self._precio = precio
+
+    def setVolumen(self, volumen: int) -> None:
+        if self._estado and 0 <= volumen <= 7:
+            self._volumen = volumen
+
+    def setControl(self, control: Control) -> None:
+        self._control = control
+
+
+
+
+
         
-        def setVolumen(self, volumen):
-             if self.estado == True:
-                 if (self.volumen and volumen >= 0) and (volumen<= 7):
-                     self.volumen = volumen
-                     return self.volumen

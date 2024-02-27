@@ -1,61 +1,41 @@
+from __future__ import annotations
 
 
 class Control:
-    def __init__(self, tv):
-        self.tv = tv
+    def __init__(self) -> None:
+        self._tv = None    
 
-    def enlazar(self, tv):
-        tv.setControl(self) 
+    def enlazar(self, tv: TV):
+        self._tv = tv
+        tv.setControl(self)
 
-    def turnOn(self, estado):
-        self.estado = True
+    def turnOn(self) -> None:
+        self._tv.turnOn()
 
-    def turnOff(self, estado):
-        self.estado = False
+    def turnOff(self) -> None:
+        self._tv.turnOff()
+
+    def canalUp(self) -> None:
+        self._tv.canalUp()
     
-    def canalUp(self, canal):
-        self.canal += 1
+    def canalDown(self) -> None:
+        self._tv.canalDown()
 
-    def canalDown(self, canal):
-         self.canal -= 1
+    def volumenUp(self) -> None:
+        self._tv.volumenUp()
+
+    def volumenDown(self) -> None:
+        self._tv.volumenDown()
+
+    def setCanal(self, canal: int) -> None:
+        self._tv.setCanal(canal)
+
+    def setVolumen(self, volumen: int) -> None:
+        self._tv.setVolumen(volumen)
+
+    def getTv(self) -> TV:
+        return self._tv
     
-    def volumenUp(self, volumen):
-        self.volumen += 1
+    def setTv(self, tv: TV) -> None:
+        self._tv = tv
     
-    def volumenDown(self, volumen):
-        self.volumen -= 1
-
-    def setCanal(self, canal):
-        if self.estado == True:
-            if (self.canal and canal >=1) and (canal<=120):
-                self.canal = canal
-                return self.canal
-        
-    def setVolumen(self, volumen):
-        if self.estado == True:
-            if (self.volumen and volumen >= 0) and (volumen<= 7):
-                self.volumen = volumen
-                return self.volumen
-
-    def setTv(self, tv):
-        self.tv = tv    
-
-    def getTv(self):
-        return self.tv
-    
-    def getVolumen(self):
-        return self.volumen
-    
-    def getCanal(self):
-        return self.canal
-
-
-
-    
-
-        
-
-
-    
-
-        
