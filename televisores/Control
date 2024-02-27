@@ -1,3 +1,6 @@
+from televisores import tv 
+from televisores import Marca 
+
 class Control:
     def __init__(self, tv):
         self.tv = tv
