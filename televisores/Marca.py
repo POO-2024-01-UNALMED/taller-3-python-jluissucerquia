@@ -1,4 +1,4 @@
-from televisores import Control
+
 from televisores import tv
 
 
@@ -7,14 +7,15 @@ class Marca:
         self.nombre = nombre 
         self.marca = marca
 
-        def getNombre (self):
-            return self.nombre
-        
         def setNombre(self, nombre):
             self.nombre = nombre 
 
-        def getMarca (self):
-            return self.marca
+        def getNombre (self):
+            return self.nombre
         
         def setMarca(self,marca):
             self.marca = marca 
+            
+        def getMarca (self):
+            return self.marca
+        
