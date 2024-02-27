@@ -74,9 +74,3 @@ class TV:
 
     def setControl(self, control: Control) -> None:
         self._control = control
-
-
-
-
-
-        
