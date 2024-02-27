@@ -1,5 +1,5 @@
 
-class TV:
+class tv:
     def __init__(self, marca, canal, precio, estado, volumen, control):
         self.marca = marca
         self.canal = canal
